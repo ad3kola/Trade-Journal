@@ -1,6 +1,7 @@
 
 import { BeakerIcon, ChartBarSquareIcon, CircleStackIcon, ClipboardIcon, EyeIcon, HomeIcon, PlusIcon, StarIcon, TableCellsIcon, UserIcon } from "@heroicons/react/24/solid";
 import { NavLinks } from "./typings";
+import { BadgeIcon, Clock } from "lucide-react";
 
 export const navLinks: NavLinks[] = [
   { Icon: HomeIcon, title: "Dashboard", path: "/" },
@@ -12,18 +13,16 @@ export const navLinks: NavLinks[] = [
 ];
 
 export const topRowData = [
-  { title: "Pageviews", Icon: EyeIcon, value: "50.8K", percentChange: 28.4 },
+  { title: "Realized PnL($)", Icon: BadgeIcon, value: "798.48USDT"},
   {
-    title: "Monthly users",
-    Icon: UserIcon,
-    value: "23.6K",
-    percentChange: -12.8,
+    title: "Win Rate(%)",
+    Icon: BadgeIcon,
+    value: "46.36%",
   },
-  { title: "New Sign Ups", Icon: PlusIcon, value: "756", percentChange: 3.1 },
+  { title: "Risk:Reward(R:R)", Icon: BadgeIcon, value: "+12.8R",},
   {
-    title: "Subscriptions",
-    Icon: StarIcon,
-    value: "2.3K",
-    percentChange: 11.3,
+    title: "Average Holding Time",
+    Icon: Clock,
+    value: "2hrs, 15min",
   },
 ];

@@ -14,5 +14,4 @@ export interface TopRowData {
     Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
   >;
   value: string;
-  percentChange: number;
 }
