@@ -6,7 +6,7 @@ function DailySummary() {
     <section className="mt-10 w-full flex flex-col gap-2 h-full">
       <h2 className="text-2xl font-bold">Daily Summary</h2>
       <div className="flex flex-col gap-4 mt-3 h-full gap-y-5">
-        <table className="w-full gradient-inverse border border-outline_purple">
+        <table className="w-full gradient-inverse border border-outline_purple overflow-x-scroll scrollbar-hide">
           <thead className="w-full text-base font-semibold tracking-wider">
             <tr className="grid-cols-9 border-b border-[#4c4c4c]">
               <td className="col-span-2 px-3 py-4">Date</td>
