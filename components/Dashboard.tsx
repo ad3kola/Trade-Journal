@@ -1,4 +1,3 @@
-import { ArrowRightIcon, Bars3BottomLeftIcon } from "@heroicons/react/24/solid";
 import WeeklySummary from "./WeeklySummary";
 import DailySummary from "./DailySummary";
 import CumulativePnLSummary from "./CumulativePnLSummary";

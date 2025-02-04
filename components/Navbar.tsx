@@ -1,13 +1,11 @@
 "use client";
 
 import { navLinks } from "@/utils/constants";
-import { Bars3BottomRightIcon } from "@heroicons/react/20/solid";
 import {
-  ChevronDoubleRightIcon,
   ChevronRightIcon,
   XMarkIcon,
 } from "@heroicons/react/24/solid";
-import { ArrowRightIcon, Bars3BottomLeftIcon } from "@heroicons/react/24/solid";
+import { Bars3BottomLeftIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

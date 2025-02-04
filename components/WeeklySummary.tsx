@@ -1,9 +1,5 @@
 import { topRowData } from "@/utils/constants";
-import {
-  CurrencyDollarIcon,
-  EllipsisHorizontalIcon,
-} from "@heroicons/react/24/solid";
-import { AlarmClock, AlarmClockIcon, ChartPie, ClockIcon, DollarSign, Percent } from "lucide-react";
+import { AlarmClock, DollarSign } from "lucide-react";
 
 function WeeklySummary() {
   return (
@@ -20,12 +16,13 @@ function WeeklySummary() {
             {indx == 0 && (
               <div className="bg-green rounded-full h-16 w-20 flex items-center justify-center">
                 <DollarSign className="text-white h-10 w-10 flex-shrink-0" />
-                </div>
+              </div>
             )}{" "}
             {indx == 3 && (
               <div className="bg-sky rounded-full h-16 w-20 flex items-center justify-center">
                 <AlarmClock className="text-white h-10 w-10 flex-shrink-0" />
-                </div>              )}
+              </div>
+            )}
             <div className="flex flex-col w-full">
               <div className="flex items-center dark:text-white">
                 <span className="text-base">{title}</span>

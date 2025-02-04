@@ -1,12 +1,3 @@
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import { dailySummaryData } from "@/utils/constants";
 import PieChartSummary from "./PieChartSummary";
 
@@ -21,7 +12,7 @@ function DailySummary() {
               <td className="col-span-2 px-3 py-4">Date</td>
               <td className="px-3 py-4">Trades</td>
               <td className="px-3 py-4">Win Rate</td>
-              <td className="col-span-2 px-3 py-4"><span className="hidden xl:flex">Realized</span> PnL</td>
+              <td className="col-span-2 px-3 py-\4"><span className="hidden xl:flex">Realized</span> PnL</td>
               <td className="px-3 py-4">ROI</td>
               <td className="col-span-2 px-3 py-4 text-right">Equity</td>
             </tr>
