@@ -6,7 +6,7 @@ function WeeklySummary() {
     <section className="mt-10 w-full flex flex-col gap-2">
       <h2 className="text-2xl font-bold">Weekly Summary</h2>
       <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-6 gap-3 mt-3">
-        {topRowData.map(({ Icon, title, value }, indx) => (
+        {topRowData.map(({ title, value }, indx) => (
           <div
             key={indx}
             className={`flex items-center justify-start w-full rounded-2xl p-4 gap-4 border gradient border-outline_purple hover:opacity-70 transform transition hover:-translate-y-1 duration-500 ease-in-out cursor-pointer ${
