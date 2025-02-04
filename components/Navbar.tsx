@@ -92,7 +92,7 @@ function Navbar() {
       </div>
 
       {/* Small Screens & below */}
-      <div className="fixed top-0 left-0 p-3 gradient w-full z-50 lg:hidden flex items-center justify-between">
+      <div className="fixed top-0 left-0 p-3 gradient w-full z-50 lg:hidden flex items-center justify-between shadow shadow-white/40">
         <h3 className="bg-gradient-to-r from-sky text-3xl relative font-extrabold to-white bg-clip-text text-transparent">
           Trade Journal
           <span className="w-2 h-2 bg-sky animate-bounce absolute -right-4 bottom-3 rounded-full" />
@@ -137,7 +137,7 @@ function Navbar() {
             <div className="">
               <h3 className="text-white text-sm font-semibold px-4">MAIN</h3>
               <div className="flex flex-col w-full p-2">
-              {navLinks.map(({ Icon, path, title }, indx) => (
+              {navLinks.slice(0, navLinks.length -2).map(({ Icon, path, title }, indx) => (
                 <Link
                   key={indx}
                   href={path}

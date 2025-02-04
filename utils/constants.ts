@@ -1,8 +1,12 @@
 import {
+  AcademicCapIcon,
+  ArrowUpTrayIcon,
   BeakerIcon,
   ChartBarSquareIcon,
   CircleStackIcon,
+  ClipboardDocumentCheckIcon,
   ClipboardIcon,
+  Cog6ToothIcon,
   EyeIcon,
   HomeIcon,
   PlusIcon,
@@ -11,15 +15,17 @@ import {
   UserIcon,
 } from "@heroicons/react/24/solid";
 import { DailySummaryData, NavLinks } from "./typings";
-import { BadgeIcon, Clock } from "lucide-react";
+import { BadgeIcon, ChartBarIcon, Clock } from "lucide-react";
 
 export const navLinks: NavLinks[] = [
   { Icon: HomeIcon, title: "Dashboard", path: "/" },
-  { Icon: BeakerIcon, title: "Sample Pages", path: "/not" },
-  { Icon: CircleStackIcon, title: "UI Elements", path: "/not" },
-  { Icon: ClipboardIcon, title: "Forms", path: "/not" },
-  { Icon: TableCellsIcon, title: "Advanced Tables", path: "/not" },
-  { Icon: ChartBarSquareIcon, title: "Charts", path: "/not" },
+  { Icon: BeakerIcon, title: "Trade Logs", path: "/not" },
+  { Icon: ArrowUpTrayIcon, title: "Upload a Trade", path: "/not" },
+  { Icon: AcademicCapIcon, title: "Awards & Certificates", path: "/not" },
+  { Icon: ChartBarIcon, title: "Trade Data & Analytics", path: "/not" },
+  { Icon: ClipboardDocumentCheckIcon, title: "Update/Review Strategy", path: "/not" },
+  { Icon: Cog6ToothIcon, title: "Settings", path: "/not" },
+  { Icon: UserIcon, title: "Log Out / Switch Account", path: "/not" },
 ];
 
 export const topRowData = [

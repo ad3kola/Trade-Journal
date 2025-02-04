@@ -3,7 +3,17 @@ import DailySummary from "./DailySummary";
 import CumulativePnLSummary from "./CumulativePnLSummary";
 import LineChartsSummary from "./LineChartsSummary";
 
-function Dashboard() {
+const Dashboard: React.FC = () => {
+  // Get today's date and format it
+  const today = new Date();
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  };
+  const formattedDate = today.toLocaleDateString("en-US", options);
+
   return (
     <main className="p-5">
       {/* <div className="flex items-center w-full justify-between px-3">
@@ -24,7 +34,9 @@ function Dashboard() {
         <h2 className="text-3xl font-extrabold flex items-center gap-2">
           Dashboard <span className="animate-wave -mt-2 inline-block">👋</span>
         </h2>
-        <h3 className="font-bold text-md pt-2">Welcome aboard, Cool Guy</h3>
+        <h3 className="font-bold text-md pt-2">
+          Welcome aboard, Adekola Adedeji
+        </h3>
         <WeeklySummary />
         <DailySummary />
         <div className="grid grid-cols-2 xl:grid-cols-3 gap-4 w-full py-5 mt-5">
@@ -34,9 +46,12 @@ function Dashboard() {
             <LineChartsSummary />
           </div>
         </div>
+        <h3 className="mx-auto bg-[#222A42] animate-bounce text-purple px-4 py-2 mt-5 rounded-lg">
+          {formattedDate}
+        </h3>
       </div>
     </main>
   );
-}
+};
 
 export default Dashboard;
