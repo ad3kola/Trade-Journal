@@ -1,3 +1,5 @@
+'use client'
+
 function page() {
   return (
     <main className="p-5 pb-10">
@@ -9,6 +11,7 @@ function page() {
           View and analyze all your past trades with key metrics, filters, and
           insights to refine your strategy
         </h3>
+        {/* <TradeLogs /> */}
       </div>
     </main>
   );
