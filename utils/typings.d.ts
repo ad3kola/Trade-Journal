@@ -15,3 +15,12 @@ export interface TopRowData {
   >;
   value: string;
 }
+
+export interface DailySummaryData {
+    date: string,
+    trades: number,
+    winRate: number,
+    realizedPnL: number,
+    roi: number,
+    equity: number,
+  }

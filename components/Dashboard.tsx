@@ -1,5 +1,6 @@
 import { ArrowRightIcon, Bars3BottomLeftIcon } from "@heroicons/react/24/solid";
-import TopRow from "./WeeklySummary";
+import WeeklySummary from "./WeeklySummary";
+import DailySummary from "./DailySummary";
 
 function Dashboard() {
   return (
@@ -18,10 +19,11 @@ function Dashboard() {
           <Bars3BottomLeftIcon className="w-5 h-5 text-white" />
         </button>
       </div> */}
-      <div className="flex flex-col">
+      <div className="flex flex-col mt-16">
       <h2 className="text-3xl font-extrabold">Dashboard</h2>
       <h3 className="font-bold text-md pt-2">Welcome aboard, Cool Guy</h3>
-        <TopRow />
+        <WeeklySummary />
+        <DailySummary />
       </div>
     </main>
   );

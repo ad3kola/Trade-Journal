@@ -3,13 +3,13 @@ import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
 
 function WeeklySummary() {
   return (
-    <section className="py-10 w-full ">
+    <section className="py-10 w-full flex flex-col gap-2">
       <h2 className="text-2xl font-bold">Weekly Summary</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 mt-3">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-4 mt-3">
       {topRowData.map(({ Icon, title, value }, indx) => (
           <div
             key={indx}
-            className={`flex flex-col items-start justify-center w-full rounded-2xl pt-4 py-6 px-5 gap-2  border gradient border-outline_purple  ${
+            className={`flex flex-col items-start justify-center w-full rounded-2xl pt-4 py-6 px-5 gap-2 border gradient border-outline_purple  ${
               indx === 0 || indx === topRowData.length - 1 ? "col-span-2" : ""
             }`}
           >

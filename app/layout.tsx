@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { Inter } from "next/font/google"; // Import the Inter font
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 // Set up Inter font
 const inter = Inter({
@@ -20,12 +21,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} antialiased flex w-full h-screen overflow-hidden bg-background`} // Apply the Inter font
+        className={`${inter.className} antialiased flex w-full h-screen overflow-hidden bg-background`}
       >
-        <Navbar />
-        <div className="flex w-full flex-1">{children}</div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <div className="flex w-full flex-1 overflow-y-scroll scrollbar-hide ">
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -18,7 +18,7 @@ function Navbar() {
   const currentPath = usePathname();
   return (
     <>
-      <div className="hidden lg:flex flex-col flex-1 max-w-72 gradient shadow py-3 gap-3 rounded-r-lg overflow-y-scroll scrollbar-hide">
+      <div className="hidden lg:flex flex-col flex-1 max-w-xs gradient shadow py-3 gap-3 rounded-r-lg overflow-y-scroll scrollbar-hide">
         <div className="flex items-center w-full justify-center p-3">
           <h3 className="font-bold text-3xl relative">
             Trade Journal

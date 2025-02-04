@@ -23,7 +23,6 @@ export default {
         bg_toggle: "#575D65",
         background: "#13192F",
         foreground: "#F3F4F6",
-        gradient: "linear-gradient(to right, #1A223B 47%, #13192F 100%)",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
