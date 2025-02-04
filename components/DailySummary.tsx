@@ -12,11 +12,11 @@ import PieChartSummary from "./PieChartSummary";
 
 function DailySummary() {
   return (
-    <section className="py-10 w-full flex flex-col gap-2 h-full">
+    <section className="mt-10 w-full flex flex-col gap-2 h-full">
       <h2 className="text-2xl font-bold">Daily Summary</h2>
-      <div className="flex flex-col xl:flex-row gap-4 mt-3 h-full">
-        <table className="w-full gradient-inverse border border-outline_purple ">
-          <thead className="w-full text-lg font-semibold tracking-wider">
+      <div className="flex flex-col gap-4 mt-3 h-full gap-y-5">
+        <table className="w-full gradient-inverse border border-outline_purple">
+          <thead className="w-full text-base font-semibold tracking-wider">
             <tr className="grid-cols-9 border-b border-[#4c4c4c]">
               <td className="col-span-2 px-3 py-4">Date</td>
               <td className="px-3 py-4">Trades</td>
@@ -31,7 +31,7 @@ function DailySummary() {
               ({ date, equity, realizedPnL, roi, trades, winRate }, indx) => (
                 <tr
                   key={indx}
-                  className="grid-cols-9 border-b border-[#4c4c4c] last:border-0"
+                  className="grid-cols-9 border-b border-[#4c4c4c] last:border-0 text-sm"
                 >
                   <td className="col-span-2 px-3 py-4">{date}</td>
                   <td className="px-3 py-4">{trades}</td>

@@ -1,6 +1,8 @@
 import { ArrowRightIcon, Bars3BottomLeftIcon } from "@heroicons/react/24/solid";
 import WeeklySummary from "./WeeklySummary";
 import DailySummary from "./DailySummary";
+import CumulativePnLSummary from "./CumulativePnLSummary";
+import LineChartsSummary from "./LineChartsSummary";
 
 function Dashboard() {
   return (
@@ -20,10 +22,19 @@ function Dashboard() {
         </button>
       </div> */}
       <div className="flex flex-col mt-16">
-      <h2 className="text-3xl font-extrabold">Dashboard</h2>
-      <h3 className="font-bold text-md pt-2">Welcome aboard, Cool Guy</h3>
+        <h2 className="text-3xl font-extrabold flex items-center gap-2">
+          Dashboard <span className="animate-wave -mt-2 inline-block">👋</span>
+        </h2>
+        <h3 className="font-bold text-md pt-2">Welcome aboard, Cool Guy</h3>
         <WeeklySummary />
         <DailySummary />
+        <div className="grid grid-cols-2 xl:grid-cols-3 gap-4 w-full py-5 mt-5">
+          <CumulativePnLSummary />
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 gap-3 border w-full col-span-2 xl:col-span-1">
+            <LineChartsSummary />
+            <LineChartsSummary />
+          </div>
+        </div>
       </div>
     </main>
   );

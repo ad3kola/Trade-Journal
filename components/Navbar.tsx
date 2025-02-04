@@ -18,11 +18,11 @@ function Navbar() {
   const currentPath = usePathname();
   return (
     <>
-      <div className="hidden lg:flex flex-col flex-1 max-w-xs gradient shadow py-3 gap-3 rounded-r-lg overflow-y-scroll scrollbar-hide">
+      <div className="hidden lg:flex flex-col flex-1 max-w-[300px] gradient shadow py-3 gap-3 rounded-r-lg overflow-y-scroll scrollbar-hide">
         <div className="flex items-center w-full justify-center p-3">
-          <h3 className="font-bold text-3xl relative">
+          <h3 className="bg-gradient-to-r from-sky text-3xl relative font-extrabold to-white bg-clip-text text-transparent">
             Trade Journal
-            <span className="w-2 h-2 bg-yellow absolute -right-4 bottom-3 rounded-full" />
+            <span className="w-2 h-2 bg-sky animate-bounce absolute -right-4 bottom-3 rounded-full" />
           </h3>
         </div>
         <div className="flex flex-col gap-3">
@@ -69,44 +69,52 @@ function Navbar() {
           </div>
           {/* Settings */}
           <div className="flex flex-col w-full p-2">
-            {navLinks.slice(navLinks.length - 2, navLinks.length).map(({ Icon, path, title }, indx) => (
-              <Link
-                key={indx}
-                href={path}
-                className={`w-full flex items-center justify-between truncate px-6 py-3 rounded-lg font-bold overflow-hidden ${
-                  currentPath == path
-                    ? "text-purple bg-background relative before:absolute before:h-full before:w-2 before:left-0 before:top-0 before:bg-purple after:absolute after:h-full after:w-2 after:right-0 after:top-0 after:bg-purple "
-                    : "text-white"
-                } hover:text-purple duration-200 transition-all`}
-              >
-                <h3 className="flex text-sm items-center space-x-2">
-                  <Icon className="w-4 h-4" /> <span>{title}</span>
-                </h3>
-                <span>
-                  <ChevronRightIcon className="h-4 w-4" />
-                </span>
-              </Link>
-            ))}
+            {navLinks
+              .slice(navLinks.length - 2, navLinks.length)
+              .map(({ Icon, path, title }, indx) => (
+                <Link
+                  key={indx}
+                  href={path}
+                  className={`w-full flex items-center justify-between truncate px-6 py-3 rounded-lg font-bold overflow-hidden ${
+                    currentPath == path
+                      ? "text-purple bg-background relative before:absolute before:h-full before:w-2 before:left-0 before:top-0 before:bg-purple after:absolute after:h-full after:w-2 after:right-0 after:top-0 after:bg-purple "
+                      : "text-white"
+                  } hover:text-purple duration-200 transition-all`}
+                >
+                  <h3 className="flex text-sm items-center space-x-2">
+                    <Icon className="w-4 h-4" /> <span>{title}</span>
+                  </h3>
+                  <span>
+                    <ChevronRightIcon className="h-4 w-4" />
+                  </span>
+                </Link>
+              ))}
           </div>
         </div>
       </div>
 
       {/* Small Screens & below */}
-      <div className="fixed top-0 left-0 py-2 px-4 gradient w-full z-50 lg:hidden flex items-center justify-between">
-        <h3 className="text-2xl font-extrabold">Adekola</h3>
-        <button className="p-2 rounded-md border border-outline_purple">
-          {isNavOpen ? (
-            <XMarkIcon
-              onClick={() => setIsNavOpen(false)}
-              className="w-5 h-5 text-white"
-            />
-          ) : (
-            <Bars3BottomLeftIcon
-              onClick={() => setIsNavOpen(true)}
-              className="w-5 h-5 text-white"
-            />
-          )}
-        </button>{" "}
+      <div className="fixed top-0 left-0 p-3 gradient w-full z-50 lg:hidden flex items-center justify-between">
+        <h3 className="bg-gradient-to-r from-sky text-3xl relative font-extrabold to-white bg-clip-text text-transparent">
+          Trade Journal
+          <span className="w-2 h-2 bg-sky animate-bounce absolute -right-4 bottom-3 rounded-full" />
+        </h3>{" "}
+        <div className="flex items-center justify-end gap-2">
+        <h3 className="gradient px-3 py-2 border border-outline_purple rounded-lg">{new Date().toLocaleString("en-US", { month: "long" })} {new Date().getDate()} {new Date().getFullYear()}</h3>
+          <button className="p-2 rounded-md border border-outline_purple">
+            {isNavOpen ? (
+              <XMarkIcon
+                onClick={() => setIsNavOpen(false)}
+                className="w-5 h-5 text-white"
+              />
+            ) : (
+              <Bars3BottomLeftIcon
+                onClick={() => setIsNavOpen(true)}
+                className="w-5 h-5 text-white"
+              />
+            )}
+          </button>{" "}
+        </div>
         <div
           className={`lg:hidden flex flex-col w-[260px] gradient shadow py-3 gap-3 rounded-r-lg overflow-y-scroll scrollbar-hide ${
             isNavOpen ? "left-0" : "-left-full"

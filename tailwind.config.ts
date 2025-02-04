@@ -9,6 +9,17 @@ export default {
   ],
   theme: {
     extend: {
+      animation: {
+        wave: "wave 1.5s infinite",
+      },
+      keyframes: {
+        wave: {
+          "0%, 100%": { transform: "rotate(0deg)" },
+          "25%": { transform: "rotate(20deg)" },
+          "50%": { transform: "rotate(-10deg)" },
+          "75%": { transform: "rotate(20deg)" },
+        },
+      },
       colors: {
         white: "#F3F4F6",
         purple: "#9B51E0",

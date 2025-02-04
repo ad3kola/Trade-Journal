@@ -32,7 +32,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <div className="flex w-full flex-1 overflow-y-scroll scrollbar-hide ">
+          <div className="flex w-full flex-1 overflow-y-scroll scrollbar-hide">
             {children}
           </div>
         </ThemeProvider>

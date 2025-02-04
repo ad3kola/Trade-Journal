@@ -1,25 +1,39 @@
 import { topRowData } from "@/utils/constants";
-import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
+import {
+  CurrencyDollarIcon,
+  EllipsisHorizontalIcon,
+} from "@heroicons/react/24/solid";
+import { AlarmClock, AlarmClockIcon, ChartPie, ClockIcon, DollarSign, Percent } from "lucide-react";
 
 function WeeklySummary() {
   return (
-    <section className="py-10 w-full flex flex-col gap-2">
+    <section className="mt-10 w-full flex flex-col gap-2">
       <h2 className="text-2xl font-bold">Weekly Summary</h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-4 mt-3">
-      {topRowData.map(({ Icon, title, value }, indx) => (
+      <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-6 gap-3 mt-3">
+        {topRowData.map(({ Icon, title, value }, indx) => (
           <div
             key={indx}
-            className={`flex flex-col items-start justify-center w-full rounded-2xl pt-4 py-6 px-5 gap-2 border gradient border-outline_purple  ${
+            className={`flex items-center justify-start w-full rounded-2xl p-4 gap-4 border gradient border-outline_purple hover:opacity-70 transform transition hover:-translate-y-1 duration-500 ease-in-out cursor-pointer ${
               indx === 0 || indx === topRowData.length - 1 ? "col-span-2" : ""
             }`}
           >
-            <div className="flex items-center justify-between w-full">
-              <div className="flex items-center space-x-2 dark:text-white">
+            {indx == 0 && (
+              <div className="bg-green rounded-full h-16 w-20 flex items-center justify-center">
+                <DollarSign className="text-white h-10 w-10 flex-shrink-0" />
+                </div>
+            )}{" "}
+            {indx == 3 && (
+              <div className="bg-sky rounded-full h-16 w-20 flex items-center justify-center">
+                <AlarmClock className="text-white h-10 w-10 flex-shrink-0" />
+                </div>              )}
+            <div className="flex flex-col w-full">
+              <div className="flex items-center dark:text-white">
                 <span className="text-base">{title}</span>
               </div>
-              <EllipsisHorizontalIcon className="w-10 h-10" />
+              <h4 className="text-4xl lg:text-3xl 2xl:text-4xl font-extrabold tracking-wider text-white">
+                {value}
+              </h4>
             </div>
-              <h4 className="text-4xl font-extrabold tracking-wider text-white">{value}</h4>
           </div>
         ))}
       </div>
