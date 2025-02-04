@@ -15,7 +15,7 @@ const Dashboard: React.FC = () => {
   const formattedDate = today.toLocaleDateString("en-US", options);
 
   return (
-    <main className="p-5">
+    <main className="p-5 pb-10">
       {/* <div className="flex items-center w-full justify-between px-3">
         <form className=" rounded-full h-12 gradient flex items-center justify-start px-5 relative flex-1 max-w-[250px]">
           <input
@@ -46,7 +46,7 @@ const Dashboard: React.FC = () => {
             <LineChartsSummary />
           </div>
         </div>
-        <h3 className="mx-auto bg-[#222A42] animate-bounce text-purple px-4 py-2 mt-5 rounded-lg">
+        <h3 className="mx-auto bg-[#222A42] animate-bounce text-purple px-4 py-2 rounded-lg">
           {formattedDate}
         </h3>
       </div>

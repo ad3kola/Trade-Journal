@@ -19,8 +19,8 @@ import { BadgeIcon, ChartBarIcon, Clock } from "lucide-react";
 
 export const navLinks: NavLinks[] = [
   { Icon: HomeIcon, title: "Dashboard", path: "/" },
-  { Icon: BeakerIcon, title: "Trade Logs", path: "/not" },
-  { Icon: ArrowUpTrayIcon, title: "Upload a Trade", path: "/not" },
+  { Icon: BeakerIcon, title: "Trade Logs", path: "/trade-logs" },
+  { Icon: ArrowUpTrayIcon, title: "Upload a Trade", path: "/upload-trade" },
   { Icon: AcademicCapIcon, title: "Awards & Certificates", path: "/not" },
   { Icon: ChartBarIcon, title: "Trade Data & Analytics", path: "/not" },
   { Icon: ClipboardDocumentCheckIcon, title: "Update/Review Strategy", path: "/not" },
