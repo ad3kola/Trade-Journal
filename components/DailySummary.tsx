@@ -5,9 +5,7 @@ import PieChartSummary from "./PieChartSummary";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -30,7 +28,7 @@ function DailySummary() {
           </TableHeader>
           <TableBody>
             {dailySummaryData.slice(navLinks.length-5, navLinks.length).map(
-              ({ date, equity, realizedPnL, roi, trades, winRate }, indx) => (
+              ({ date, equity, realizedPnL, roi, trades }, indx) => (
                 <TableRow key={indx}>
                   <TableCell className="py-5">{date}</TableCell>
                   <TableCell className="py-5 hidden lg:flex">{trades}</TableCell>
