@@ -5,14 +5,14 @@ import LineChartsSummary from "./LineChartsSummary";
 
 const Dashboard: React.FC = () => {
   // Get today's date and format it
-  const today = new Date();
-  const options: Intl.DateTimeFormatOptions = {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  };
-  const formattedDate = today.toLocaleDateString("en-US", options);
+  // const today = new Date();
+  // const options: Intl.DateTimeFormatOptions = {
+  //   weekday: "long",
+  //   month: "long",
+  //   day: "numeric",
+  //   year: "numeric",
+  // };
+  // const formattedDate = today.toLocaleDateString("en-US", options);
 
   return (
     <main className="p-5 pb-10">
