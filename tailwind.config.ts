@@ -28,10 +28,10 @@ export default {
         red: "#F33C3C",
         green: "#02CA02",
         outline_purple: "rgba(155, 81, 224, 0.34)",
-        bg_input: "#22283E",
+        input: "rgba(78, 83, 101, 0.6)",
         outline_input: "rgba(255, 255, 255, 0.32)",
         button_purple: "#7440A5",
-        bg_toggle: "#575D65",
+        toggle: "#575D65",
         background: "#13192F",
         foreground: "#F3F4F6",
         card: {
@@ -63,7 +63,6 @@ export default {
           foreground: "hsl(var(--destructive-foreground))",
         },
         border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         chart: {
           "1": "hsl(var(--chart-1))",

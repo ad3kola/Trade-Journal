@@ -30,7 +30,7 @@ const Dashboard: React.FC = () => {
           <Bars3BottomLeftIcon className="w-5 h-5 text-white" />
         </button>
       </div> */}
-      <div className="flex flex-col mt-16">
+      <div className="flex flex-col mt-[70px] gap-3">
         <h2 className="text-3xl font-extrabold flex items-center gap-2">
           Dashboard <span className="animate-wave -mt-2 inline-block">👋</span>
         </h2>
@@ -39,16 +39,19 @@ const Dashboard: React.FC = () => {
         </h3>
         <WeeklySummary />
         <DailySummary />
-        <div className="grid grid-cols-2 xl:grid-cols-3 gap-4 w-full py-5 mt-5">
-          <CumulativePnLSummary />
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 gap-3 border w-full col-span-2 xl:col-span-1">
-            <LineChartsSummary />
-            <LineChartsSummary />
+        <div className=" w-full py-5 mt-5">
+          <h2 className="text-2xl text-center lg:text-left font-bold">
+            Cumulative Statistics
+          </h2>
+
+          <div className="grid grid-cols-2 xl:grid-cols-3 gap-6 mt-5">
+            <CumulativePnLSummary />
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 gap-x-3 gap-y-6 border w-full col-span-2 xl:col-span-1">
+              <LineChartsSummary />
+              <LineChartsSummary />
+            </div>
           </div>
         </div>
-        <h3 className="mx-auto bg-[#222A42] animate-bounce text-purple px-4 py-2 rounded-lg">
-          {formattedDate}
-        </h3>
       </div>
     </main>
   );

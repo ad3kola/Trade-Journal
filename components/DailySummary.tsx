@@ -1,39 +1,41 @@
 "use client";
 
-import { dailySummaryData } from "@/utils/constants";
+import { dailySummaryData, navLinks } from "@/utils/constants";
 import PieChartSummary from "./PieChartSummary";
-;
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 function DailySummary() {
   return (
     <section className="mt-10 w-full flex flex-col gap-2 h-full">
-      <h2 className="text-2xl font-bold">Daily Summary</h2>
-      <div className="flex flex-col gap-4 mt-3 h-full gap-y-5">
-        <table className="w-full gradient-inverse border border-outline_purple ">
-          <thead className="w-full text-base font-semibold tracking-wider">
-            <tr className="grid-cols-9 border-b border-[#4c4c4c]">
-              <td className="col-span-2 px-3 py-4">Date</td>
-              <td className="px-3 py-4">Trades</td>
-              <td className="px-3 py-4">Win Rate</td>
-              <td className="col-span-2 px-3 py-\4">
-                <span className="hidden xl:flex">Realized</span> PnL
-              </td>
-              <td className="px-3 py-4">ROI</td>
-              <td className="col-span-2 px-3 py-4 text-right">Equity</td>
-            </tr>
-          </thead>
-          <tbody className="w-full">
-            {dailySummaryData.map(
+      <h2 className="text-2xl lg:text-left text-center font-bold">Daily Summary</h2>
+      <div className="flex flex-col gap-6 mt-3 h-full oveflow-x-scroll'">
+        <Table className="overflow-hidden">
+          <TableHeader>
+            <TableRow>
+              <TableHead>Date</TableHead>
+              <TableHead className='hidden lg:flex'>Trades</TableHead>
+              <TableHead>RealizedPnL</TableHead>
+              <TableHead>ROI</TableHead>
+              <TableHead className="text-right">Equity</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {dailySummaryData.slice(navLinks.length-5, navLinks.length).map(
               ({ date, equity, realizedPnL, roi, trades, winRate }, indx) => (
-                <tr
-                  key={indx}
-                  className="grid-cols-9 border-b border-[#4c4c4c] last:border-0 text-sm"
-                >
-                  <td className="col-span-2 px-3 py-4">{date}</td>
-                  <td className="px-3 py-4">{trades}</td>
-                  <td className="px-3 py-4">{winRate}%</td>
-                  <td
-                    className={`col-span-2 px-3 py-4 ${
+                <TableRow key={indx}>
+                  <TableCell className="py-5">{date}</TableCell>
+                  <TableCell className="py-5 hidden lg:flex">{trades}</TableCell>
+                  <TableCell
+                    className={` ${
                       realizedPnL < 0
                         ? "text-red"
                         : realizedPnL > 0
@@ -41,10 +43,11 @@ function DailySummary() {
                         : "text-white pl-9"
                     }`}
                   >
-                    {realizedPnL}
-                  </td>
-                  <td
-                    className={`px-3 py-4 ${
+                    {realizedPnL}{" "}
+                    {realizedPnL < 0 || realizedPnL > 0 ? "USDT" : ""}
+                  </TableCell>
+                  <TableCell
+                    className={` ${
                       roi < 0
                         ? "text-red"
                         : roi > 0
@@ -52,14 +55,14 @@ function DailySummary() {
                         : "text-white pl-9"
                     }`}
                   >
-                    {roi}%
-                  </td>
-                  <td className="text-right col-span-2 px-3 py-4">{equity}</td>
-                </tr>
+                    {roi}{roi < 0 || roi > 0 ? "%" : ""}
+                  </TableCell>
+                  <TableCell className="text-right">${equity}</TableCell>
+                </TableRow>
               )
             )}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
         <PieChartSummary />
       </div>
     </section>

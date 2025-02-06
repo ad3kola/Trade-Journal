@@ -1,5 +1,8 @@
 'use client'
 
+import FullTableData from "@/components/FullTableData";
+
+
 function page() {
   return (
     <main className="p-5 pb-10">
@@ -12,6 +15,7 @@ function page() {
           insights to refine your strategy
         </h3>
         {/* <TradeLogs /> */}
+        <FullTableData />
       </div>
     </main>
   );

@@ -4,7 +4,7 @@ import { AlarmClock, DollarSign } from "lucide-react";
 function WeeklySummary() {
   return (
     <section className="mt-10 w-full flex flex-col gap-2">
-      <h2 className="text-2xl font-bold">Weekly Summary</h2>
+      <h2 className="text-2xl lg:text-left text-center font-bold">Weekly Summary</h2>
       <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-6 gap-3 mt-3">
         {topRowData.map(({ title, value }, indx) => (
           <div

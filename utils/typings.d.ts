@@ -17,10 +17,24 @@ export interface TopRowData {
 }
 
 export interface DailySummaryData {
-    date: string,
-    trades: number,
-    winRate: number,
-    realizedPnL: number,
-    roi: number,
-    equity: number,
-  }
+  date: string;
+  trades: number;
+  winRate: number;
+  realizedPnL: number;
+  roi: number;
+  id: number;
+  equity: number;
+  coinTicker: string;
+  risk: number;
+  direction: string;
+  image: string;
+  entryPrice: number;
+  exitPrice: number;
+  riskFactors: number;
+  timeWindow: string;
+  divergence: true;
+  headAndShoulders: true;
+  proTrendBias: false;
+  trades: number;
+  trendlineRetest: true;
+}
