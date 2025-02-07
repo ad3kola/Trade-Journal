@@ -16,11 +16,13 @@ function DailySummary() {
     <section className="mt-10 w-full flex flex-col gap-2 h-full">
       <h2 className="text-2xl lg:text-left text-center font-bold">Daily Summary</h2>
       <div className="flex flex-col gap-6 mt-3 h-full oveflow-x-scroll'">
-        <Table className="overflow-hidden">
+        <div className="border border-outline_purple p-2 rounded-2xl">
+
+        <Table>
           <TableHeader>
             <TableRow>
               <TableHead>Date</TableHead>
-              <TableHead className='hidden lg:flex'>Trades</TableHead>
+              <TableHead className='hidden lg:flex pt-2'>Trades</TableHead>
               <TableHead>RealizedPnL</TableHead>
               <TableHead>ROI</TableHead>
               <TableHead className="text-right">Equity</TableHead>
@@ -60,7 +62,8 @@ function DailySummary() {
               )
             )}
           </TableBody>
-        </Table>
+          </Table>
+          </div>
         <PieChartSummary />
       </div>
     </section>

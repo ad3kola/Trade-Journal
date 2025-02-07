@@ -33,6 +33,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { dailySummaryData } from "@/utils/constants";
+import {
+  CheckIcon,
+  ChevronDoubleLeftIcon,
+  ChevronDoubleRightIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/solid";
 
 export interface DailySummaryData {
   date: string;
@@ -69,9 +75,18 @@ export const columns: ColumnDef<DailySummaryData>[] = [
     cell: ({ row }) => <div>{row.getValue("date")}</div>,
   },
   {
-    accessorKey: "trades",
-    header: "Trades",
-    cell: ({ row }) => <div>{row.getValue("trades")}</div>,
+    accessorKey: "image",
+    header: "Image",
+    cell: ({ row }) => (
+      <div className="flex items-center">
+        <img
+          src={row.getValue("image")}
+          alt="Trade"
+          className="w-24 h-20 object-cover rounded-xl"
+        />
+      </div>
+    ),
+    enableHiding: false,
   },
   {
     accessorKey: "winRate",
@@ -118,7 +133,7 @@ export const columns: ColumnDef<DailySummaryData>[] = [
   },
   {
     accessorKey: "riskFactors",
-    header: "Risk Factors",
+    header: "R:R",
     cell: ({ row }) => <div>{row.getValue("riskFactors")}</div>,
   },
   {
@@ -129,29 +144,64 @@ export const columns: ColumnDef<DailySummaryData>[] = [
   {
     accessorKey: "divergence",
     header: "Divergence",
-    cell: ({ row }) => <div>{row.getValue("divergence") ? "Yes" : "No"}</div>,
+    cell: ({ row }) => (
+      <div>
+        {row.getValue("divergence") ? (
+          <CheckIcon className="text-white h-7 w-7 rotate-12" />
+        ) : (
+          <XMarkIcon className="text-white h-7 w-7" />
+        )}{" "}
+      </div>
+    ),
   },
   {
     accessorKey: "headAndShoulders",
-    header: "Head and Shoulders",
-    cell: ({ row }) => <div>{row.getValue("headAndShoulders") ? "Yes" : "No"}</div>,
+    header: "H & S",
+    cell: ({ row }) => (
+      <div>
+        {row.getValue("headAndShoulders") ? (
+          <CheckIcon className="text-white h-7 w-7 rotate-12" />
+        ) : (
+          <XMarkIcon className="text-white h-7 w-7" />
+        )}{" "}
+      </div>
+    ),
   },
   {
     accessorKey: "proTrendBias",
-    header: "Pro Trend Bias",
-    cell: ({ row }) => <div>{row.getValue("proTrendBias") ? "Yes" : "No"}</div>,
+    header: "Pro Trend",
+    cell: ({ row }) => (
+      <div>
+        {row.getValue("proTrendBias") ? (
+          <CheckIcon className="text-white h-7 w-7 rotate-12" />
+        ) : (
+          <XMarkIcon className="text-white h-7 w-7" />
+        )}{" "}
+      </div>
+    ),
   },
   {
     accessorKey: "trendlineRetest",
-    header: "Trendline Retest",
-    cell: ({ row }) => <div>{row.getValue("trendlineRetest") ? "Yes" : "No"}</div>,
+    header: "Trend Retest",
+    cell: ({ row }) => (
+      <div>
+        {row.getValue("trendlineRetest") ? (
+          <CheckIcon className="text-white h-7 w-7 rotate-12" />
+        ) : (
+          <XMarkIcon className="text-white h-7 w-7" />
+        )}{" "}
+      </div>
+    ),
   },
 ];
 
 export default function FullTableData() {
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    []
+  );
+  const [columnVisibility, setColumnVisibility] =
+    React.useState<VisibilityState>({});
 
   const table = useReactTable({
     data: dailySummaryData,
@@ -167,18 +217,22 @@ export default function FullTableData() {
   });
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="w-full overflow-hidden flex flex-col gap-3">
       <div className="flex items-center py-4 space-x-4">
         <Input
           placeholder="Filter by Coin Ticker..."
-          value={ (table.getColumn("coinTicker")?.getFilterValue() as string) ?? "" }
-          onChange={(event) => table.getColumn("coinTicker")?.setFilterValue(event.target.value)}
+          value={
+            (table.getColumn("coinTicker")?.getFilterValue() as string) ?? ""
+          }
+          onChange={(event) =>
+            table.getColumn("coinTicker")?.setFilterValue(event.target.value)
+          }
           className="max-w-sm"
         />
         <DropdownMenu>
           <DropdownMenuTrigger
             asChild
-            className="bg-input h-12 rounded-xl border border-outline_input hover:bg-input/40"
+            className="bg-input h-12 rounded-xl border border-outline_input hover:bg-input"
           >
             <Button variant="outline">
               Columns <ChevronDown />
@@ -204,7 +258,7 @@ export default function FullTableData() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="border border-outline_input relative w-full overflow-x-auto">
+      <div className="border border-outline_input rounded-xl relative scrollbar-thumb-rounded-3xl scrollbar-thin scrollbar-hide  scrollbar-thumb-outline_input overflow-x-scroll py-2 px-4 scrollbar-track-transparent">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -213,7 +267,10 @@ export default function FullTableData() {
                   <TableHead key={header.id}>
                     {header.isPlaceholder
                       ? null
-                      : flexRender(header.column.columnDef.header, header.getContext())}
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
                   </TableHead>
                 ))}
               </TableRow>
@@ -222,10 +279,16 @@ export default function FullTableData() {
           <TableBody>
             {table.getRowModel().rows.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id}>
+                <TableRow
+                  key={row.id}
+                  className="hover:bg-input cursor-pointer rounded-lg"
+                >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id} className="truncate min-w-40">
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
                     </TableCell>
                   ))}
                 </TableRow>
@@ -243,19 +306,19 @@ export default function FullTableData() {
       <div className="flex items-center justify-end space-x-2 py-4">
         <Button
           variant="outline"
-          size="sm"
+          size="lg" className="rounded-md"
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
         >
-          Previous
+           <ChevronDoubleLeftIcon className="h-4 w-4" /> Previous
         </Button>
         <Button
           variant="outline"
-          size="lg"
+          size="lg" className="rounded-md"
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >
-          Next
+          Next <ChevronDoubleRightIcon className="h-4 w-4" />
         </Button>
       </div>
     </div>

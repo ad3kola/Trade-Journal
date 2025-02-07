@@ -14,10 +14,18 @@ export default {
       },
       keyframes: {
         wave: {
-          "0%, 100%": { transform: "rotate(0deg)" },
-          "25%": { transform: "rotate(20deg)" },
-          "50%": { transform: "rotate(-10deg)" },
-          "75%": { transform: "rotate(20deg)" },
+          "0%, 100%": {
+            transform: "rotate(0deg)",
+          },
+          "25%": {
+            transform: "rotate(20deg)",
+          },
+          "50%": {
+            transform: "rotate(-10deg)",
+          },
+          "75%": {
+            transform: "rotate(20deg)",
+          },
         },
       },
       colors: {
@@ -28,7 +36,7 @@ export default {
         red: "#F33C3C",
         green: "#02CA02",
         outline_purple: "rgba(155, 81, 224, 0.34)",
-        input: "rgba(78, 83, 101, 0.6)",
+        input: "rgba(78, 83, 101, 0.4)",
         outline_input: "rgba(255, 255, 255, 0.32)",
         button_purple: "#7440A5",
         toggle: "#575D65",
@@ -82,15 +90,13 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
-      borderRadius: {
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
     },
   },
   plugins: [
     require("tailwind-scrollbar-hide"),
-    require("tailwind-scrollbar"),
+    require("tailwind-scrollbar")({
+      nocompatible: true,
+    }),
     require("tailwindcss-animate"),
   ],
 } satisfies Config;

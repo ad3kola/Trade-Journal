@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} antialiased flex w-full h-screen overflow-hidden bg-background`}
+        className={`${inter.className} antialiased flex w-full h-screen overflow-hidden gradient-ioinverse`}
       >
         <ThemeProvider
           attribute="class"
@@ -32,7 +32,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <div className="flex flex-col w-full flex-1 overflow-y-scroll scrollbar-hide pb-32">
+          <div className="flex flex-col w-full flex-1 overflow-y-scroll scrollbar-hide">
             {children}
           </div>
         </ThemeProvider>

@@ -16,10 +16,10 @@ function Navbar() {
     {/* Large screens & above */}
       <div className="hidden lg:flex flex-col flex-1 max-w-[300px] gradient shadow py-3 gap-3 rounded-r-lg relative overflow-y-scroll scrollbar-hide">
         <div className="flex items-center w-full justify-center p-3">
-          <h3 className="bg-gradient-to-r from-sky text-3xl relative font-extrabold to-white bg-clip-text text-transparent">
+          <Link href="/" className="bg-gradient-to-r from-sky text-3xl relative font-extrabold to-white bg-clip-text text-transparent">
             Trade Journal
             <span className="w-2 h-2 bg-sky animate-bounce absolute -right-4 bottom-3 rounded-full" />
-          </h3>
+          </Link>
         </div>
         <div className="flex flex-col gap-3">
           {/* Profile */}
@@ -91,11 +91,11 @@ function Navbar() {
 
       {/* Small screens & below */}
       <div className="fixed top-0 left-0 p-3 gradient w-full z-50 lg:hidden flex items-center justify-between shadow shadow-white/40">
-        <h3 className="bg-gradient-to-r from-sky text-3xl relative font-extrabold to-white bg-clip-text text-transparent">
+        <Link href='/' className="bg-gradient-to-r from-sky text-3xl relative font-extrabold to-white bg-clip-text text-transparent">
           Trade Journal
 
           <span className="w-2 h-2 bg-sky animate-bounce absolute -right-4 bottom-3 rounded-full" />
-        </h3>{" "}
+        </Link>{" "}
         <button className="p-2 overflow-hidden border border-white rounded-lg">
           {isNavOpen ? (
             <XMarkIcon
