@@ -7,13 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarMenu,
-} from "./ui/sidebar";
+
 
 function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
