@@ -1,8 +1,8 @@
-import Dashboard from "@/components/Dashboard";
+import Dashboard from "@/components/Dashboard/Dashboard";
 
 export default function Home() {
   return (
-    <div className="bg-background w-full h-full">
+    <div className="w-full h-full">
     <Dashboard />
     </div>
   );

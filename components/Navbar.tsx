@@ -7,11 +7,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarMenu,
+} from "./ui/sidebar";
 
 function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
   const currentPath = usePathname();
   return (
+
     <>
     {/* Large screens & above */}
       <div className="hidden lg:flex flex-col flex-1 max-w-[300px] gradient shadow py-3 gap-3 rounded-r-lg relative overflow-y-scroll scrollbar-hide">
@@ -96,15 +104,13 @@ function Navbar() {
 
           <span className="w-2 h-2 bg-sky animate-bounce absolute -right-4 bottom-3 rounded-full" />
         </Link>{" "}
-        <button className="p-2 overflow-hidden border border-white rounded-lg">
+        <button onClick={() => setIsNavOpen(!isNavOpen)} className="p-2 overflow-hidden border border-white rounded-lg hover:bg-input hover:border-input transition duration-100 ease-in-out">
           {isNavOpen ? (
             <XMarkIcon
-              onClick={() => setIsNavOpen(false)}
               className="w-5 h-5 text-white"
             />
           ) : (
             <Bars3BottomLeftIcon
-              onClick={() => setIsNavOpen(true)}
               className="w-5 h-5 text-white"
             />
           )}
@@ -126,7 +132,7 @@ function Navbar() {
                 />
               </div>
               <h2 className="text-white  font-bold text-lg mt-2">
-                Adekola Adedeji
+                Adekola Adedeji 
               </h2>
               <h3 className="text-gray-400 text-lg font-bold tracking-wider">
                 $10,000
@@ -135,8 +141,7 @@ function Navbar() {
             <div className="flex flex-col gap-5">
             {/* Main */}
             <div className="flex flex-col gap-2">
-              <h3 className="text-white text-sm font-semibold px-4">MAIN</h3>
-              <div className="flex flex-col w-full gap-3 px-2 py-3">
+              <div className="flex flex-col w-full gap-2 p-2">
                 {navLinks
                   .slice(0, navLinks.length - 2)
                   .map(({ Icon, path, title }, indx) => (
