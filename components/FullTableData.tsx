@@ -39,6 +39,7 @@ import {
   ChevronDoubleRightIcon,
   XMarkIcon,
 } from "@heroicons/react/24/solid";
+import Image from "next/image";
 
 export interface DailySummaryData {
   date: string;
@@ -79,10 +80,12 @@ export const columns: ColumnDef<DailySummaryData>[] = [
     header: "Image",
     cell: ({ row }) => (
       <div className="flex items-center">
-        <img
+        <Image
           src={row.getValue("image")}
           alt="Trade"
-          className="w-24 h-20 object-cover rounded-xl"
+          className="object-cover rounded-xl"
+          width={24}
+          height={20}
         />
       </div>
     ),
@@ -306,15 +309,17 @@ export default function FullTableData() {
       <div className="flex items-center justify-end space-x-2 py-4">
         <Button
           variant="outline"
-          size="lg" className="rounded-md"
+          size="lg"
+          className="rounded-md"
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
         >
-           <ChevronDoubleLeftIcon className="h-4 w-4" /> Previous
+          <ChevronDoubleLeftIcon className="h-4 w-4" /> Previous
         </Button>
         <Button
           variant="outline"
-          size="lg" className="rounded-md"
+          size="lg"
+          className="rounded-md"
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >

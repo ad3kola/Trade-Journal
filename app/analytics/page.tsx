@@ -6,9 +6,7 @@ import PnLOverTime from "@/components/Analytics/PnLOverTime";
 import ProTrend_Retest from "@/components/Analytics/ProTrend_Retest";
 import RiskFactorsperTrade from "@/components/Analytics/RiskFactorsperTrade";
 import ROI from "@/components/Analytics/ROI";
-import StrategyStats from "@/components/Analytics/StrategyStats";
 import { topRowData } from "@/utils/constants";
-import { AlarmClock, DollarSign } from "lucide-react";
 
 function page() {
   return (

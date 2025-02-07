@@ -3,7 +3,6 @@ import { Inter } from "next/font/google"; // Import the Inter font
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 // Set up Inter font
 const inter = Inter({
