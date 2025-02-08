@@ -134,10 +134,24 @@ export const dailySummaryData: DailySummaryData[] = [
 ];
 
 export const pnlOverTimeChartData = [
-    { month: "January", gains: 186, losses: 80 },
-    { month: "February", gains: 305, losses: 200 },
-    { month: "March", gains: 237, losses: 120 },
-    { month: "April", gains: 73, losses: 190 },
-    { month: "May", gains: 209, losses: 130 },
-    { month: "June", gains: 214, losses: 140 },
-]
+  { month: "January", gains: 186, losses: 80 },
+  { month: "February", gains: 305, losses: 200 },
+  { month: "March", gains: 237, losses: 120 },
+  { month: "April", gains: 73, losses: 190 },
+  { month: "May", gains: 209, losses: 130 },
+  { month: "June", gains: 214, losses: 140 },
+];
+
+export const listOfCoins = [
+  "BTCUSDT",
+  "ETHUSDT",
+  "AVAXUSDT",
+  "1000PEPEUSDT",
+  "SOLUSDT",
+  "DOGEUSDT",
+  "LINKUSDT",
+  "UNIUSDT",
+  "SUIUSDT",
+  "TRUMPUSDT",
+  "NOTUSDT",
+];

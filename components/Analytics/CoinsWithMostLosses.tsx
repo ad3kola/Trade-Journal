@@ -36,7 +36,7 @@ const chartData = [
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "hsl(var(--chart-1))",
+    color: "#0EA5E9",
   },
   mobile: {
     label: "Mobile",
@@ -54,7 +54,7 @@ export default function CoinsWithMostLosses() {
         <CardTitle>Bar Chart - Custom Label</CardTitle>
         <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
-
+``
       <CardContent>
         <ChartContainer config={chartConfig}>
           <BarChart
