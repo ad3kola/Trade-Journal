@@ -1,4 +1,4 @@
-import { TradeUploadForm } from "@/components/TradeUploadForm";
+import  TradeUploadForm  from "@/components/TradeUploadForm";
 
 function page() {
   return (

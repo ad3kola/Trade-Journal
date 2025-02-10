@@ -14,7 +14,7 @@ import {
   TableCellsIcon,
   UserIcon,
 } from "@heroicons/react/24/solid";
-import { DailySummaryData, NavLinks } from "./typings";
+import { CoinsList, DailySummaryData, NavLinks } from "./typings";
 import { BadgeIcon, ChartBarIcon, Clock } from "lucide-react";
 
 export const navLinks: NavLinks[] = [
@@ -142,16 +142,28 @@ export const pnlOverTimeChartData = [
   { month: "June", gains: 214, losses: 140 },
 ];
 
-export const listOfCoins = [
-  "BTCUSDT",
-  "ETHUSDT",
-  "AVAXUSDT",
-  "1000PEPEUSDT",
-  "SOLUSDT",
-  "DOGEUSDT",
-  "LINKUSDT",
-  "UNIUSDT",
-  "SUIUSDT",
-  "TRUMPUSDT",
-  "NOTUSDT",
+export const listOfCoins: CoinsList[] = [
+  { name: "BTC/USDT", logo: "/assets/Bitcoin.png", value:"btcusdt" },
+  { name: "1000PEPE/USDT", logo: "/assets/Pepe.png", value:"1000pepeusdt"  },
+  { name: "SOL/USDT", logo: "/assets/Solana.webp", value:"solusdt"  },
+  { name: "AVAX/USDT", logo: "/assets/Avax.png", value:"avaxusdt"  },
+];
+
+export const leverageAmount: string[] = [
+  "5x",
+  "10x",
+  "15x",
+  "20x",
+  "25x",
+  "30x",
+  "45x",
+  "50x",
+  "75x",
+  "80x",
+  "95x",
+  "100x",
+  "125x",
+  "150x",
+  "175x",
+  "200x",
 ];

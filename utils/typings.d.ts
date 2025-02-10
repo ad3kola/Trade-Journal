@@ -38,3 +38,33 @@ export interface DailySummaryData {
   trades: number;
   trendlineRetest: true;
 }
+export interface CoinsList {
+  name: string;
+  logo: string;
+  value: string;
+}
+
+export interface FormSchema {
+  date: Date;
+  outcome: string;
+  coinSymbol: string;
+  directionBias: string;
+  timeFrame: string;
+  leverage: string;
+  session: string;
+  entryPrice: number;
+  takeProfitPrice: number;
+  stopLossPrice: number;
+  riskAmount: number;
+  positionSize: number;
+  divergence: boolean;
+  head_Shoulders: boolean;
+  proTrendBias: boolean;
+  trendlineRetest: boolean;
+  fibKeyLevels: boolean;
+  indicatorHighlight: boolean;
+  confidenceLevel: number;
+  tradeScreenshot: string;
+  tradeReview: string;
+}
+

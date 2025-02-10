@@ -94,9 +94,10 @@ export default {
   },
   plugins: [
     require("tailwind-scrollbar-hide"),
-    require("tailwind-scrollbar")({
+    require('tailwind-scrollbar')({
       nocompatible: true,
-    }),
+      preferredStrategy: 'pseudoelements',
+  }),
     require("tailwindcss-animate"),
   ],
 } satisfies Config;
