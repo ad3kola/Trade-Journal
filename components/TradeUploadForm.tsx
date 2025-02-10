@@ -58,7 +58,7 @@ export default function TradeUploadForm() {
     control,
     watch,
     setValue,
-    formState: { errors },
+    formState 
   } = useForm<FormSchema>({
     defaultValues: {
       divergence: false,
@@ -73,7 +73,6 @@ export default function TradeUploadForm() {
     },
   });
   const [open, setOpen] = useState(false);
-  const [coinValue, setCoinValue] = useState("");
 
   return (
     <div className="flex w-full mt-10 flex-col items-center justify-center">
@@ -90,7 +89,7 @@ export default function TradeUploadForm() {
                   <Controller
                     control={control}
                     name="coinSymbol"
-                    render={({ field: { value, name, onChange } }) => (
+                    render={({ field }) => (
                       <Popover open={open} onOpenChange={setOpen}>
                         <PopoverTrigger asChild>
                           <Button
@@ -143,7 +142,7 @@ export default function TradeUploadForm() {
                                     value={coin.value} // Ensure correct value is passed
                                     onSelect={() => {
                                       setValue("coinSymbol", coin.value); // Update react-hook-form state
-                                      setCoinValue(coin.value); // Update local state if needed
+                                      
                                       setOpen(false); // Close dropdown after selection
                                     }}
                                   >
@@ -276,7 +275,7 @@ export default function TradeUploadForm() {
                       control={control}
                       rules={{ required: true }}
                       name="date"
-                      render={({ field: { name, value, onChange } }) => (
+                      render={({ field: { value, onChange } }) => (
                         <Popover>
                           <PopoverTrigger asChild>
                             <Button
