@@ -57,8 +57,7 @@ export default function TradeUploadForm() {
     handleSubmit,
     control,
     watch,
-    setValue,
-    formState 
+    setValue, 
   } = useForm<FormSchema>({
     defaultValues: {
       divergence: false,
@@ -89,7 +88,7 @@ export default function TradeUploadForm() {
                   <Controller
                     control={control}
                     name="coinSymbol"
-                    render={({ field }) => (
+                    render={({ }) => (
                       <Popover open={open} onOpenChange={setOpen}>
                         <PopoverTrigger asChild>
                           <Button
