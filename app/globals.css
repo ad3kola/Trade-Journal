@@ -97,7 +97,7 @@ body {
     background: var(--gradient-inverse);
   }
   .input {
-    @apply flex w-full rounded-lg border border-input bg-input py-3 px-6 font-semibold tracking-wider shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-white/70 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:cursor-not-allowed disabled:opacity-50 text-sm
+    @apply flex w-full rounded-lg  bg-input py-3 px-6 font-semibold tracking-wider shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-white/70 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:cursor-not-allowed disabled:opacity-50 text-sm
   }
 }
 

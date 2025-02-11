@@ -14,7 +14,6 @@ function page() {
           View and analyze all your past trades with key metrics, filters, and
           insights to refine your strategy.
         </h3>
-        {/* <TradeLogs /> */}
         <FullTableData />
       </div>
     </main>
