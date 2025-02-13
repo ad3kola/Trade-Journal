@@ -14,56 +14,60 @@ import {
 function DailySummary() {
   return (
     <section className="mt-10 w-full flex flex-col gap-2 h-full">
-      <h2 className="text-2xl lg:text-left text-center font-bold">Daily Summary</h2>
+      <h2 className="text-2xl lg:text-left text-center font-bold">
+        Daily Summary
+      </h2>
       <div className="flex flex-col gap-6 mt-3 h-full oveflow-x-scroll'">
-        <div className="border border-outline_purple p-2 rounded-2xl">
-
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Date</TableHead>
-              <TableHead className='hidden lg:flex pt-2'>Trades</TableHead>
-              <TableHead>RealizedPnL</TableHead>
-              <TableHead>ROI</TableHead>
-              <TableHead className="text-right">Equity</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {dailySummaryData.slice(navLinks.length-5, navLinks.length).map(
-              ({ date, equity, realizedPnL, roi, trades }, indx) => (
-                <TableRow key={indx}>
-                  <TableCell className="py-5">{date}</TableCell>
-                  <TableCell className="py-5 hidden lg:flex">{trades}</TableCell>
-                  <TableCell
-                    className={` ${
-                      realizedPnL < 0
-                        ? "text-red"
-                        : realizedPnL > 0
-                        ? "text-green"
-                        : "text-white pl-9"
-                    }`}
-                  >
-                    {realizedPnL}{" "}
-                    {realizedPnL < 0 || realizedPnL > 0 ? "USDT" : ""}
-                  </TableCell>
-                  <TableCell
-                    className={` ${
-                      roi < 0
-                        ? "text-red"
-                        : roi > 0
-                        ? "text-green"
-                        : "text-white pl-9"
-                    }`}
-                  >
-                    {roi}{roi < 0 || roi > 0 ? "%" : ""}
-                  </TableCell>
-                  <TableCell className="text-right">${equity}</TableCell>
-                </TableRow>
-              )
-            )}
-          </TableBody>
+        <div className="border gradient-inverse border-input p-2 rounded-2xl">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Date</TableHead>
+                <TableHead className="hidden lg:flex pt-2">Trades</TableHead>
+                <TableHead>RealizedPnL</TableHead>
+                <TableHead>ROI</TableHead>
+                <TableHead className="text-right">Equity</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {dailySummaryData
+                .slice(navLinks.length - 5, navLinks.length)
+                .map(({ date, equity, realizedPnL, roi, trades }, indx) => (
+                  <TableRow key={indx}>
+                    <TableCell className="py-5">{date}</TableCell>
+                    <TableCell className="py-5 hidden lg:flex">
+                      {trades}
+                    </TableCell>
+                    <TableCell
+                      className={` ${
+                        realizedPnL < 0
+                          ? "text-red"
+                          : realizedPnL > 0
+                          ? "text-green"
+                          : "text-white pl-9"
+                      }`}
+                    >
+                      {realizedPnL}{" "}
+                      {realizedPnL < 0 || realizedPnL > 0 ? "USDT" : ""}
+                    </TableCell>
+                    <TableCell
+                      className={` ${
+                        roi < 0
+                          ? "text-red"
+                          : roi > 0
+                          ? "text-green"
+                          : "text-white pl-9"
+                      }`}
+                    >
+                      {roi}
+                      {roi < 0 || roi > 0 ? "%" : ""}
+                    </TableCell>
+                    <TableCell className="text-right">${equity}</TableCell>
+                  </TableRow>
+                ))}
+            </TableBody>
           </Table>
-          </div>
+        </div>
         <PieChartSummary />
       </div>
     </section>

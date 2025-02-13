@@ -3,6 +3,8 @@ import { Inter } from "next/font/google"; // Import the Inter font
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark, neobrutalism, shadesOfPurple } from "@clerk/themes";
 
 // Set up Inter font
 const inter = Inter({
@@ -21,22 +23,31 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.className} antialiased flex w-full h-screen overflow-hidden gradient-ioinverse`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
+    <ClerkProvider
+      appearance={{
+        baseTheme: [dark, neobrutalism],
+        signIn: {
+          variables: { colorPrimary: "rgb(155, 81, 224)", colorText: "white" },
+        },
+      }}
+    >
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={`${inter.className} antialiased flex w-full h-screen overflow-hidden gradient-ioinverse`}
         >
-          <Navbar />
-          <div className="flex flex-col w-full flex-1 overflow-y-scroll scrollbar-hide">
-            {children}
-          </div>
-        </ThemeProvider>
-      </body>
-    </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Navbar />
+            <div className="flex flex-col w-full flex-1 overflow-y-scroll scrollbar-hide">
+              {children}
+            </div>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

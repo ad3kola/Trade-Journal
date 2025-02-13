@@ -2,17 +2,9 @@ import {
   AcademicCapIcon,
   ArrowUpTrayIcon,
   BeakerIcon,
-  ChartBarSquareIcon,
-  CircleStackIcon,
   ClipboardDocumentCheckIcon,
-  ClipboardIcon,
   Cog6ToothIcon,
-  EyeIcon,
   HomeIcon,
-  PlusIcon,
-  StarIcon,
-  TableCellsIcon,
-  UserIcon,
 } from "@heroicons/react/24/solid";
 import { CoinsList, DailySummaryData, NavLinks } from "./typings";
 import { BadgeIcon, ChartBarIcon, Clock } from "lucide-react";
@@ -29,7 +21,6 @@ export const navLinks: NavLinks[] = [
     path: "/not",
   },
   { Icon: Cog6ToothIcon, title: "Settings", path: "/not" },
-  { Icon: UserIcon, title: "Log Out / Switch Account", path: "/not" },
 ];
 
 export const topRowData = [

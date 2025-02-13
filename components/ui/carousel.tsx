@@ -32,7 +32,7 @@ type CarouselContextProps = {
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null)
 
-function useCarousel() {
+export function useCarousel() {
   const context = React.useContext(CarouselContext)
 
   if (!context) {
@@ -62,6 +62,7 @@ const Carousel = React.forwardRef<
       {
         ...opts,
         axis: orientation === "horizontal" ? "x" : "y",
+        align: "start", // Ensures each slide starts at the correct position
       },
       plugins
     )
@@ -107,18 +108,15 @@ const Carousel = React.forwardRef<
     }, [api, setApi])
 
     React.useEffect(() => {
-      if (!api) {
-        return
-      }
-
-      onSelect(api)
-      api.on("reInit", onSelect)
-      api.on("select", onSelect)
-
+      if (!api) return;
+      onSelect(api);
+      api.on("reInit", onSelect);
+      api.on("select", onSelect);
+    
       return () => {
-        api?.off("select", onSelect)
-      }
-    }, [api, onSelect])
+        api.off("select", onSelect);
+      };
+    }, [api, onSelect]);
 
     return (
       <CarouselContext.Provider
@@ -135,13 +133,16 @@ const Carousel = React.forwardRef<
         }}
       >
         <div
-          ref={ref}
-          onKeyDownCapture={handleKeyDown}
-          className={cn("relative w-full max-w-xl", className)}
-          role="region"
-          aria-roledescription="carousel"
-          {...props}
-        >
+  ref={ref}
+  role="group"
+  aria-roledescription="slide"
+  className={cn(
+    "shrink-0 grow-0 flex-[0_0_100%]",
+    orientation === "horizontal" ? "pl-4" : "pt-4",
+    className
+  )}
+  {...props}
+>
           {children}
         </div>
       </CarouselContext.Provider>
@@ -157,7 +158,7 @@ const CarouselContent = React.forwardRef<
   const { carouselRef, orientation } = useCarousel()
 
   return (
-    <div ref={carouselRef} className="overflow-hidden">
+    <div ref={carouselRef} className="">
       <div
         ref={ref}
         className={cn(
@@ -206,7 +207,7 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute  h-8 w-8 rounded-full",
+        "  h-8 w-8 rounded-full",
         orientation === "horizontal"
           ? "-left-12 top-1/2 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -235,7 +236,7 @@ const CarouselNext = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute h-8 w-8 rounded-full",
+        " h-8 w-8 rounded-full",
         orientation === "horizontal"
           ? "-right-12 top-1/2 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",

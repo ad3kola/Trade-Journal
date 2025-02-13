@@ -40,7 +40,7 @@ function page() {
                 .map(({ title, value }, indx) => (
                   <div
                     key={indx}
-                    className={`flex items-center justify-start w-full rounded-2xl p-4 gap-4 border gradient border-outline_purple h-full`}
+                    className={`flex items-center justify-start w-full rounded-2xl p-4 gap-4 border gradient border-input h-full`}
                   >
                     <div className="flex flex-col w-full">
                       <div className="flex items-center dark:text-white">

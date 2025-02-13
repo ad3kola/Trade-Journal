@@ -261,8 +261,8 @@ export default function FullTableData() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="border border-outline_input rounded-xl relative scrollbar-thumb-rounded-3xl scrollbar-thin scrollbar-hide  scrollbar-thumb-outline_input overflow-x-scroll py-2 px-4 scrollbar-track-transparent">
-        <Table>
+      <div className="border border-outline_input rounded-xl relative scrollbar-thumb-rounded-3xl scrollbar-thin scrollbar-hide  scrollbar-thumb-outline_input overflow-x-scroll py-2 px-4 scrollbar-track-transparent gradient-inverse">
+        <Table> 
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>

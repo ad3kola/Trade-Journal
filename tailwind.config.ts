@@ -35,7 +35,6 @@ export default {
         sky: "#0EA5E9",
         red: "#F33C3C",
         green: "#02CA02",
-        outline_purple: "rgba(155, 81, 224, 0.34)",
         input: "rgba(78, 83, 101, 0.4)",
         outline_input: "rgba(255, 255, 255, 0.32)",
         button_purple: "#7440A5",
@@ -94,10 +93,10 @@ export default {
   },
   plugins: [
     require("tailwind-scrollbar-hide"),
-    require('tailwind-scrollbar')({
+    require("tailwind-scrollbar")({
       nocompatible: true,
-      preferredStrategy: 'pseudoelements',
-  }),
+      preferredStrategy: "pseudoelements",
+    }),
     require("tailwindcss-animate"),
   ],
 } satisfies Config;

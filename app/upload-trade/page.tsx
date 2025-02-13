@@ -11,7 +11,6 @@ function page() {
           Record your trade details, including entry, exit, risk, and session
           time, to anlsyze snd improve your trading strategy{" "}
         </h3>
-        hrrkf
         <div>
         <TradeUploadForm />
         </div>

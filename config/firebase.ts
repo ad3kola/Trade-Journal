@@ -1,17 +1,18 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDhIYpLyW7-r0x5LIBN32k3W6PQ6HKxb-o",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "adekola-trade-journal-07.firebaseapp.com",
-  projectId: "adekola-trade-journal-07",
+  projectId: process.env.FIREBASE_PROJECT_ID,
   storageBucket: "adekola-trade-journal-07.firebasestorage.app",
   messagingSenderId: "149611085858",
-  appId: "1:149611085858:web:2befa26e106925d85d8a7b"
+  appId: "1:149611085858:web:2befa26e106925d85d8a7b",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
+export const dbStorage = getStorage(app);
