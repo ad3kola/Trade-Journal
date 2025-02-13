@@ -55,13 +55,13 @@ export default function TradeUploadForm() {
   const onSubmit: SubmitHandler<FormSchema> = async (data) => {
     console.log(data);
 
-    // event.preventDefault();
-    // const formData = new FormData(event.currentTarget);
-    // console.log("Submitted data: ", formData);
-    // const response = await fetch("/api/upload", {
-    //   method: "POST",
-    //   body: formData,
-    // });
+    const res = await fetch('/api/upload-trade', {
+      method: 'POST',  // Ensure this is POST
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+  });
   };
   const screenShotRef = useRef<HTMLInputElement>(null);
   const { register, handleSubmit, control, watch, setValue } =
@@ -76,7 +76,7 @@ export default function TradeUploadForm() {
         head_Shoulders: false,
         confidenceLevel: 0,
         date: undefined,
-        outcome: ''
+        outcome: "",
       },
     });
   const [open, setOpen] = useState(false);
@@ -300,20 +300,16 @@ export default function TradeUploadForm() {
               control={control}
               name="outcome"
               render={({ field: { value, onChange } }) => (
-                <RadioGroup
-                  value={value}
-                  onValueChange={onChange}
-                >
+                <RadioGroup value={value} onValueChange={onChange}>
                   <div className="flex gap-6 pr-5">
-                    
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="win" id="win" />
-                    <Label htmlFor="win">Win</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="loss" id="loss" />
-                    <Label htmlFor="option-two">Loss</Label>
-                  </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="win" id="win" />
+                      <Label htmlFor="win">Win</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="loss" id="loss" />
+                      <Label htmlFor="option-two">Loss</Label>
+                    </div>
                   </div>
                 </RadioGroup>
               )}
