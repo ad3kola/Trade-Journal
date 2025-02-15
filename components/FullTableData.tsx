@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { useState, useEffect } from "react";
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -40,6 +40,11 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "@/config/firebase";
+import { useUser } from "@clerk/nextjs";
+import { FormSchema } from "@/utils/typings";
+import fetchTradeLogs from "@/utils/fetchTradeLogs";
 
 export interface DailySummaryData {
   date: string;
@@ -199,12 +204,9 @@ export const columns: ColumnDef<DailySummaryData>[] = [
 ];
 
 export default function FullTableData() {
-  const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  );
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({});
+  const [sorting, setSorting] = useState<SortingState>([]);
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
 
   const table = useReactTable({
     data: dailySummaryData,
@@ -218,9 +220,25 @@ export default function FullTableData() {
     onColumnVisibilityChange: setColumnVisibility,
     state: { sorting, columnFilters, columnVisibility },
   });
+  const { user } = useUser();
+  const [allTrades, setAllTrades] = useState<FormSchema[]>([]);
+  useEffect(() => {
+    const getTrades = async () => {
+      if (!user) return;
 
+      const userEmail = user.emailAddresses[0].emailAddress;
+      console.log("Fetching trades for:", userEmail);
+
+      const trades = await fetchTradeLogs(userEmail);
+      setAllTrades(trades);
+    };
+
+    getTrades();
+  }, [user]);
   return (
     <div className="w-full overflow-hidden flex flex-col gap-3">
+      {" "}
+      {/* {allTrades.length} */}
       <div className="flex items-center py-4 space-x-4">
         <Input
           placeholder="Filter by Coin Ticker..."
@@ -262,7 +280,7 @@ export default function FullTableData() {
         </DropdownMenu>
       </div>
       <div className="border border-outline_input rounded-xl relative scrollbar-thumb-rounded-3xl scrollbar-thin scrollbar-hide  scrollbar-thumb-outline_input overflow-x-scroll py-2 px-4 scrollbar-track-transparent gradient-inverse">
-        <Table> 
+        <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>

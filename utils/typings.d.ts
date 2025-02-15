@@ -45,6 +45,7 @@ export interface CoinsList {
 }
 
 export interface FormSchema {
+  id?: string;
   date: Date;
   outcome: string;
   coinSymbol: string;
@@ -68,3 +69,10 @@ export interface FormSchema {
   tradeReview: string;
 }
 
+export interface Coin {
+  id: string,
+  symbol: string;
+  name: string;
+  image: string;
+  current_price: number;
+}

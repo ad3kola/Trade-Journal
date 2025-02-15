@@ -53,7 +53,6 @@ import { Label } from "@/components/ui/label";
 
 export default function TradeUploadForm() {
   const onSubmit: SubmitHandler<FormSchema> = async (data) => {
-    console.log(data);
 
     const res = await fetch('/api/upload-trade', {
       method: 'POST',  // Ensure this is POST
